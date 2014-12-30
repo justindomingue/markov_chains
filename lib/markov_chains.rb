@@ -1,15 +1,16 @@
-require 'markov_chains/version.rb'
+require_relative 'markov_chains/version.rb'
 
 module MarkovChains
 
   def self.initialize(source)
-    @dict = new MarkoChains::Dictionary(source)
-    @generator = new Generator()
+    @dict = MarkovChains::Dictionary.new(source)
+    @generator = MarkovChains::Generator.new
+    self
   end
   
   def self.random_sentence
   end
 end
 
-require 'markov_chains/dictionary.rb'
-require 'markov_chains/generator.rb'
+require_relative 'markov_chains/dictionary.rb'
+require_relative 'markov_chains/generator.rb'
