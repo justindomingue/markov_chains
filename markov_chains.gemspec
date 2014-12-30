@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = MarkovChains::VERSION
   spec.authors       = ["justindomingue"]
   spec.email         = ["justin.domingue@hotmail.com"]
-  spec.summary     = 'A simple random text generator from source text using markov chains.'
+  spec.summary     = 'A simple random text generator using markov chains.'
   spec.homepage      = ""
   spec.license       = "MIT"
 
