@@ -20,11 +20,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create a generator and give it a source text:
+
+    text = "Why did the chicken cross the Mobius Strip?, To get to the same side..."
+    generator = MarkovChains::Generator.new(text)
+
+Generate a number of sentences, here 5:
+
+    generator.get_sentences(5)
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/markov-chains/fork )
+1. Fork it ( https://github.com/[justindomingue]/markov-chains/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
