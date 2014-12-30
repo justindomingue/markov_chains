@@ -3,7 +3,7 @@ require 'markov_chains'
 
 class GeneratorTest < Minitest::Test
   def setup
-    source = "Why did the Mobius Strip cross the road? To get to the same side!"
+    source = "Why did the chicken cross the Mobius Strip? To get to the same side!"
     @generator = MarkovChains::Generator.new source
   end
   
