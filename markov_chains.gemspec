@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["justindomingue"]
   spec.email         = ["justin.domingue@hotmail.com"]
   spec.summary     = 'A simple random text generator using markov chains.'
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/justindomingue/markov_chains"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
