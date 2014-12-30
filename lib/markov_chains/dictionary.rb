@@ -68,7 +68,7 @@ module MarkovChains
     def add(word, next_word)
       @words[word] = Hash.new(0) if !@words[word]
       @words[word][next_word] += 1
-      @start_words.push(next_word) if word.end_with? '.' and !word.blank?
+      @start_words.push(next_word) if word.end_with? '.' and !word.nil?
     end
     
   end
