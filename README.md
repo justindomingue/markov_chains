@@ -29,6 +29,11 @@ Generate a number of sentences, here 5:
 
     generator.get_sentences(5)
 
+## Change log
+
+* Version 0.1.0 - Added order attribute in the generator for higher-order markov chains and rewrote the most of the internal code to handle order
+* Version 0.0.0 - Initial release
+
 ## Contributing
 
 1. Fork it ( https://github.com/[justindomingue]/markov-chains/fork )
