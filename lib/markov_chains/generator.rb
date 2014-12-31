@@ -30,7 +30,7 @@ module MarkovChains
           sentence << nw
         end
         
-        sentences << (sentence[0...-1].join(" ") << sentence.last)
+        sentences << (sentence[0...-1].join(" ").gsub(/\s([,;:])/, '\1') << sentence.last)
       end
       
       sentences
