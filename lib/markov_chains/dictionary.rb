@@ -26,7 +26,7 @@ module MarkovChains
       #   ["sent1", "term1", "sent2", "term2", ...]
       seps = /([.!?]+)/
       sentences = text.split seps
-      sentences.each_slice(2) { |s,t| process_sentence(s,t) }
+      sentences.each_slice(2) { |s,t| process_sentence(s.strip,t) }
     end
     
     # Processes a single sentence with terminator
@@ -40,9 +40,9 @@ module MarkovChains
     private def process_sentence(sentence, terminator)
       # Consider phrases/words/clauses separators when splitting
       seps = "([,;:])"
-      
+
       # Split <sentence> into words
-      words = sentence.gsub(/(#{seps})\s+/, '\1').split(/\s+|(#{seps})/)
+      words = sentence.gsub(/[^#{seps}\w'\s]/, "").gsub(/(#{seps})\s+/, '\1').split(/\s+|#{seps}/)
       words << terminator
       
       # Add <@order> start words to the list
@@ -76,10 +76,8 @@ module MarkovChains
     #
     # @return [[String]] array of words that could start a sentence
     #
-    def get_start_word
+    def get_start_words
       @start_words.sample
     end
-
-    
   end
 end
