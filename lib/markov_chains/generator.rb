@@ -8,8 +8,8 @@ module MarkovChains
     #
     # @param Text source to generate sentences from
     #
-    def initialize(text)
-      @dict = MarkovChains::Dictionary.new(text)
+    def initialize(text, order = 1)
+      @dict = MarkovChains::Dictionary.new(text, order)
     end
     
     # Returns a given number of randonly generated sentences
@@ -24,14 +24,13 @@ module MarkovChains
       sentences = []
       
       n.times do
-        sentence = ""
-        word = @dict.get_start_word
-        until sentence.scan(/\.|\?|!/).size == 1
-          sentence << word << " "
-          word = @dict.get(word)
+        sentence = @dict.get_start_word
+        
+        until nw = @dict.get(sentence[-@dict.order, @dict.order])
+          sentence += nw
         end
         
-        sentences.push sentence
+        sentences << sentence
       end
       
       sentences

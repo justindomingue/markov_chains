@@ -1,5 +1,6 @@
 module MarkovChains
   class Dictionary
+    attr_reader :order
     
     # Initialized the dictionary with a text source.
     #
