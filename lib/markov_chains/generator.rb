@@ -1,6 +1,6 @@
 module MarkovChains
   class Generator
-    
+        
     # Initializes the generator
     #
     # @example Create a new generator
@@ -24,13 +24,13 @@ module MarkovChains
       sentences = []
       
       n.times do
-        sentence = @dict.get_start_word
+        sentence = @dict.get_start_words
         
-        until nw = @dict.get(sentence[-@dict.order, @dict.order])
-          sentence += nw
+        while nw = @dict.get(sentence[-@dict.order, @dict.order])
+          sentence << nw
         end
         
-        sentences << sentence
+        sentences << (sentence[0...-1].join(" ") << sentence.last)
       end
       
       sentences
