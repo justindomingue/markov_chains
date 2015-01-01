@@ -29,6 +29,15 @@ Generate a number of sentences, here 5:
 
     generator.get_sentences(5)
 
+### Higher Order Markov Chains
+
+By default, the generator will use order-1 Markov chains, meaning that when selecting a next word, the generator will only consider 1 previous word. A Marko chain or order `n` will consider `n` previous words. The higher the order, the closer the generated text will be from the original one. Orders between 1 and 3 are typical; higher orders will often spit the text verbatim.
+
+Create a generator using a Markov chain of higher order (Markov chain with memory `order`) :
+    
+    order = 2
+    generator = MarkovChains::Generator.new(text, order)
+
 ## Change log
 
 * Version 0.1.0 - Added order attribute in the generator for higher-order markov chains and rewrote the most of the internal code to handle order
