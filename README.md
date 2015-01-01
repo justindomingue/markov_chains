@@ -37,6 +37,7 @@ Create a generator using a Markov chain of higher order (Markov chain with memor
     
     order = 2
     generator = MarkovChains::Generator.new(text, order)
+    generator.get_sentences(5)
 
 ## Change log
 
