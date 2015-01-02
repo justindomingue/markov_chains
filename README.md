@@ -41,6 +41,7 @@ Create a generator using a Markov chain of higher order (Markov chain with memor
 
 ## Change log
 
+* Version 0.1.1 - Fixed bug with Ruby 2.0.0
 * Version 0.1.0 - Added order attribute in the generator for higher-order markov chains and rewrote the most of the internal code to handle order
 * Version 0.0.0 - Initial release
 
