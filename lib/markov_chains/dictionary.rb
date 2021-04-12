@@ -16,15 +16,18 @@ module MarkovChains
       @order = order
       @words_for = Hash.new
       @start_words = Array.new
+      endings = "[.!?]"
+      literals = "[[:alpha:]]"
       
       # Standarize input text
-      text.delete! "\n"
+      text.gsub!(/(#{endings})\n/, '\1 ').gsub!("\n", '. ')
+      text += '.' if text[-1] =~ /#{literals}/
       
       # Process each sentence
       
       # <sentences> has format sentence+terminator:
       #   ["sent1", "term1", "sent2", "term2", ...]
-      seps = /([.!?]+)/
+      seps = /(#{endings}+)/
       sentences = text.split seps
       sentences.each_slice(2) { |s,t| process_sentence(s.strip,t) }
     end
@@ -40,9 +43,10 @@ module MarkovChains
     private def process_sentence(sentence, terminator)
       # Consider phrases/words/clauses separators when splitting
       seps = "([,;:])"
+      literals = "[[:alpha:]]"
 
       # Split <sentence> into words
-      words = sentence.gsub(/[^#{seps}\w'\s]/, "").gsub(/(#{seps})\s+/, '\1').split(/\s+|#{seps}/)
+      words = sentence.gsub(/[^#{seps}#{literals}'\s]/, "").gsub(/(#{seps})\s+/, '\1').split(/\s+|#{seps}/)
       words << terminator
       
       # Add <@order> start words to the list
